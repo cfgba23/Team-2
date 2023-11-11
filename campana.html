@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaña</title>
+    <link rel="stylesheet" href="./css/background.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </head>
+
+  <body>
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="./img/logo-tzedaca-removebg-preview.png" class="h-8" alt="Tzedaca Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tzedacá</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">La Fundación</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Qué hacemos</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Cómo participar</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Querés ayudar</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Transparencia</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Campañas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <main>
+      <section
+        class="relative bg-[url(img/pexels-max-fischer-5212700.jpg)] bg-cover bg-center bg-no-repeat"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-white/95 to-white/25"
+        ></div>
+
+        <div
+          class="relative mx-20 max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+        >
+          <div
+            class="max-w-xl flex-column space-y-10 ltr:sm:text-left rtl:sm:text-right"
+          >
+            <h1 class="text-3xl font-extrabold sm:text-5xl">
+              Armá tu campaña
+
+              <strong class="block font-extrabold text-blue-900">
+                Empezá a ayudar
+              </strong>
+            </h1>
+
+            <p class="mt-2 max-w-lg sm:text-xl/relaxed">
+              En cada rincón del mundo, hay niños que enfrentan desafíos
+              inimaginables. Son pequeños héroes que luchan por un futuro mejor,
+              y tú puedes ser la llave que desbloquee su potencial. En nuestra
+              ONG, nos dedicamos a apadrinar a estos niños en situaciones
+              vulnerables, proporcionándoles no solo apoyo financiero, sino
+              también amor, educación y esperanza. <br>Cada donación que recibimos
+              no solo es un acto de generosidad, sino una inversión en el
+              futuro. <BR></BR> Con tu ayuda,
+              podemos romper el ciclo de la pobreza, proporcionar acceso a la
+              educación de calidad y asegurar un futuro lleno de oportunidades.
+            </p>
+
+            <div class="flex mt-6 flex-wrap gap-4 text-center frame">
+              <a href="#section-create">
+                <button class="custom-btn btn-start">Sumate</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-create"
+        class="h-screen flex justify-center items-center"
+      >
+        <div class="container justify-center items-center flex">
+          <div class="w-1/2 p-10">
+            <img src="./img/pexels-pixabay-159823.jpg" alt="" />
+          </div>
+
+          <div class="justify-center items-center flex w-1/2">
+            <div class="flex-column items-center mx-auto">
+              <h2 class="text-5xl tracking-wide font-bold pb-1 text-blue-900">
+                Nueva campaña
+              </h2>
+              <div class="h-1 w-[50vh] bg-blue-500"></div>
+              <div class="h-1 bg-grey-700"></div>
+              <p class="mt-4 max-w-lg tracking-wide sm:text-xl/relaxed">
+                Únete a nuestras campañas para transformar vidas. Cada donación
+                cuenta. Impulsa la educación de niños y jóvenes necesitados. Tu
+                contribución en estas campañas no solo suma donantes a nuestra
+                plataforma, sino que también abre oportunidades para que estos
+                niños completen su educación. Haz la diferencia hoy, apoya el
+                acceso a la educación y brinda un futuro prometedor a quienes
+                más lo necesitan. ¡Juntos, construimos caminos hacia un mañana
+                lleno de posibilidades y esperanza!
+              </p>
+              <button id="miBoton" class="custom-btn btn-start mt-3">Crear</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><img src="./img/footer-padrino.jpg" alt="" /></footer>
+
+    <script src="./js/campaña.js"></script>
+  </body>
+</html>
