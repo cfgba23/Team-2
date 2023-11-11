@@ -43,5 +43,11 @@ public class VistasControlador {
         model.addAttribute("campanias", campanias);
         return "todasLasEstadisticas";
     }
+
+    @GetMapping("/campaña/{id}")
+    public String campania(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("link", repoCampania.findById(id).get().getLink());
+        return "compartir";
+    }
 }
 
