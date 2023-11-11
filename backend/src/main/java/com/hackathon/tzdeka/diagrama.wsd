@@ -1,0 +1,28 @@
+@startuml
+
+class Campania {
+    - nombre: String
+    - descripcion: String
+    - fotos: List<String>
+    - link: String
+}
+
+class Usuario {
+    - nombre: String
+    - apellido: String
+    - email: String
+    - contrasenia: String
+    - referidos: List<Usuario>
+    - codigoReferido: String
+    - campanias: List<Campania>
+}
+
+class CreadorDeCampania {
+    - usuario: Usuario
+    - campanias: List<Campania>
+}
+
+Usuario --> "*" Campania
+Usuario --> "*" Usuario
+
+@enduml
