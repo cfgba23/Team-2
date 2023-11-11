@@ -31,9 +31,13 @@ public class ServicioUsuario {
       usuario.setContrasenia(registerDTO.getContrasenia());
       usuario.setCodigoReferido(GeneradorDeCodigo.generar());
 
+      if (registerDTO.getCodigoReferido() != null) {
+          repoUsuario.findByCodigoReferido(registerDTO.getCodigoReferido()).ifPresent(usuarioReferidor -> usuarioReferidor.agregarReferido(usuario));
+      }
+
       repoUsuario.save(usuario);
 
-        return new RedirectView("/campaña", true);
+      return new RedirectView("/crear", true);
 
     } catch (Exception e) {
         return new RedirectView("/login?error=" + e.getMessage(), true);

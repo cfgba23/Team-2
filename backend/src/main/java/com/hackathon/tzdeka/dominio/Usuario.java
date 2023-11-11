@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,4 +28,13 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "campania_id")
     private List<Campania> campanias;
+
+    public Usuario() {
+        this.referidos = new ArrayList<>();
+        this.campanias = new ArrayList<>();
+    }
+
+    public void agregarReferido(Usuario usuario) {
+        referidos.add(usuario);
+    }
 }

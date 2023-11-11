@@ -212,3 +212,8 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+.input-container {
+    height: 200px;
+    overflow-y: scroll;
+}

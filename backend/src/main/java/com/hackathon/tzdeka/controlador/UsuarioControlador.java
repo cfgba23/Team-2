@@ -21,9 +21,12 @@ public class UsuarioControlador {
             @RequestParam String nombre,
             @RequestParam String apellido,
             @RequestParam String email,
-            @RequestParam String contrasenia
+            @RequestParam String contrasenia,
+            @RequestParam(required = false) String codigoReferido
     ) {
+
         RegisterDTO registerDTO = new RegisterDTO(nombre, apellido, email, contrasenia);
+        registerDTO.setCodigoReferido(codigoReferido);
         return servicioUsuario.registrarse(registerDTO);
     }
 

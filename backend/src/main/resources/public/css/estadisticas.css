@@ -3,20 +3,18 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #fff9db;
 }
-
-
 
 h1, h2 {
     font-size: 36px;
     font-weight: bold;
-    color: #000000;
+    color: #4CAF50;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .grid-container {
-    width: 100%;
     display: grid;
     gap: 20px;
     padding: 20px;
@@ -31,6 +29,7 @@ h1, h2 {
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 
 
 .grid-item {
@@ -105,6 +104,20 @@ h1, h2 {
     .grid-item {
         display: block; }
 
+    .text-overlay {
+        height: auto;
+        overflow: visible;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        text-align: left;
+        opacity: 1;
+        transition: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0 0 8px 8px;
+    }
 
     .grid-item-content {
         flex-basis: 100%;
