@@ -1,0 +1,124 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+h1, h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.grid-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.grid-item-content {
+    flex-basis: calc(50% - 10px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item-content:hover {
+    transform: scale(1.05);
+}
+
+.grid-item-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: content-box;
+    height: 30%;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: #fff;
+    padding: 20px;
+    text-align: left;
+}
+
+.grid-item-content:hover .text-overlay {
+    opacity: 1;
+}
+
+
+/* Estilos para mobile*/
+@media only screen and (max-width: 768px) {
+    h1, h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .grid-title {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .grid-item-content {
+        flex-basis: 100%;
+    }
+
+    .grid-item {
+        display: block; }
+
+
+    .grid-item-content {
+        flex-basis: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .grid-item-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+}

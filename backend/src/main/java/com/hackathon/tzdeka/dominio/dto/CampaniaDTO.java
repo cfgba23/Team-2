@@ -11,6 +11,8 @@ public class CampaniaDTO {
   private String nombre;
   private String descripcion;
 
-  private List<String> fotos;
-  private String link;
+  public CampaniaDTO(String nombre, String descripcion) {
+    this.nombre = nombre;
+    this.descripcion = descripcion;
+  }
 }

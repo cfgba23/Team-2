@@ -1,3 +1,4 @@
+/*
 package com.hackathon.tzdeka.configuracion;
 
 import org.springframework.context.annotation.Bean;
@@ -23,3 +24,4 @@ public class SecurityConfig {
         .build();
   }
 }
+*/

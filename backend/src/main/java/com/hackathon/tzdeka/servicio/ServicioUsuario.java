@@ -1,5 +1,6 @@
 package com.hackathon.tzdeka.servicio;
 
+import com.hackathon.tzdeka.dominio.GeneradorDeCodigo;
 import com.hackathon.tzdeka.dominio.Usuario;
 import com.hackathon.tzdeka.dominio.dto.LoginDTO;
 import com.hackathon.tzdeka.dominio.dto.RegisterDTO;
@@ -17,10 +18,10 @@ public class ServicioUsuario {
   @Autowired
   private RepoUsuario repoUsuario;
 
-  public ResponseEntity<?> registrarse(RegisterDTO registerDTO) {
+  public RedirectView registrarse(RegisterDTO registerDTO) {
     try {
       if (repoUsuario.existsByEmail(registerDTO.getEmail())) {
-        return ResponseEntity.badRequest().body("El email ya existe");
+        return new RedirectView("/login?error=ya existe el email", true);
       }
 
       Usuario usuario = new Usuario();
@@ -28,35 +29,34 @@ public class ServicioUsuario {
       usuario.setApellido(registerDTO.getApellido());
       usuario.setEmail(registerDTO.getEmail());
       usuario.setContrasenia(registerDTO.getContrasenia());
+      usuario.setCodigoReferido(GeneradorDeCodigo.generar());
 
       repoUsuario.save(usuario);
 
-      RedirectView redirectView = new RedirectView("/", true);
-      return ResponseEntity.ok(redirectView);
+        return new RedirectView("/campaña", true);
 
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body(e.getMessage());
+        return new RedirectView("/login?error=" + e.getMessage(), true);
     }
   }
 
-  public ResponseEntity<?> login(LoginDTO loginDTO) {
+  public RedirectView login(LoginDTO loginDTO) {
     try {
       if (!repoUsuario.existsByEmail(loginDTO.getEmail())) {
-        return ResponseEntity.badRequest().body("El email no existe");
+        return new RedirectView("/login?error=El email no existe", true);
       }
 
       Optional<Usuario> usuarioOptional = Optional.ofNullable(repoUsuario.findByEmail(loginDTO.getEmail()));
       Usuario usuario = usuarioOptional.orElse(null);
 
-      if (usuario == null || !usuario.getContrasenia().equals(loginDTO.getPassword())) {
-        return ResponseEntity.badRequest().body("La contraseña es incorrecta");
+      if (usuario == null || !usuario.getContrasenia().equals(loginDTO.getContrasenia())) {
+        return new RedirectView("/login?error=La contraseña es incorrecta", true);
       }
 
-      RedirectView redirectView = new RedirectView("/", true);
-      return ResponseEntity.ok(redirectView);
+      return new RedirectView("/crear", true);
 
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body(e.getMessage());
+      return new RedirectView("/login?error=" + e.getMessage(), true);
     }
   }
 }

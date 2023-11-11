@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="\css\auth.css">
     <title>Auth</title>
 </head>
 
@@ -13,7 +13,8 @@
 
 <div class="container" id="container">
     <div class="form-container sign-up">
-        <form>
+        <form method="POST" action="/register">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <h1>Crear Cuenta</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -22,16 +23,19 @@
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span>o usa tu email para registrarte</span>
-            <input type="text" placeholder="Nombre*" required>
-            <input type="text" placeholder="Apellido*" required>
-            <input type="email" placeholder="Email*" required>
-            <input type="password" placeholder="Contraseña*" required>
+            <input type="text" placeholder="Nombre*" name="nombre" required>
+            <input type="text" placeholder="Apellido*" name="apellido" required>
+            <input type="email" placeholder="Email*" name="email" required>
+            <input type="password" placeholder="Contraseña*" name="contrasenia" required>
             <input type="password" placeholder="Repetir Contraseña*" required>
+            <input type="text" placeholder="Codigo de referido" name="codigo">
             <button>Registrarse</button>
         </form>
     </div>
     <div class="form-container sign-in">
-        <form method="post" action="/login">
+        <!-- send as raw -->
+        <form method="POST" action="/login">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <h1>Iniciar Sesion</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -40,10 +44,10 @@
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span>o usa tu email y contraseña</span>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Contraseña" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Contraseña" name="contrasenia" required>
             <a href="#">¿Olvidaste tu Contraseña?</a>
-            <button>Iniciar Sesion</button>
+            <button type="submit">Iniciar Sesion</button>
         </form>
     </div>
     <div class="toggle-container">
@@ -62,7 +66,7 @@
     </div>
 </div>
 
-<script src="js/auth.js"></script>
+<script src="\js\auth.js"></script>
 </body>
 
 </html>

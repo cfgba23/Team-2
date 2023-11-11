@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequestMapping("/")
@@ -16,19 +17,21 @@ public class UsuarioControlador {
     private ServicioUsuario servicioUsuario;
 
     @PostMapping("/register")
-    public ResponseEntity<?> crearUsuario(@RequestBody RegisterDTO registerDTO) {
+    public RedirectView registrarse(
+            @RequestParam String nombre,
+            @RequestParam String apellido,
+            @RequestParam String email,
+            @RequestParam String contrasenia
+    ) {
+        RegisterDTO registerDTO = new RegisterDTO(nombre, apellido, email, contrasenia);
         return servicioUsuario.registrarse(registerDTO);
-
     }
+
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
+    public RedirectView login(@RequestParam String email, @RequestParam String contrasenia) {
+        LoginDTO loginDTO = new LoginDTO(email, contrasenia);
         return servicioUsuario.login(loginDTO);
-    }
-
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "auth";
     }
 
 

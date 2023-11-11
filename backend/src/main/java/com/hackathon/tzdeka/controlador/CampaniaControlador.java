@@ -13,19 +13,19 @@ public class CampaniaControlador {
   @Autowired
   private ServicioCampania servicioCampania;
 
-  @PostMapping("/")
-  public ResponseEntity<?> crearCampania(@RequestBody CampaniaDTO campaniaDTO) {
-    return servicioCampania.crearCampania(campaniaDTO);
-  }
+  @GetMapping
 
-  @GetMapping("/")
-  public String home(Model model) {
-    return "sumate";
+  @PostMapping("/campaña")
+  public ResponseEntity<?> crearCampania(
+          @RequestParam String nombre,
+          @RequestParam String descripcion
+  ) {
+    CampaniaDTO campaniaDTO = new CampaniaDTO(nombre, descripcion);
+    return servicioCampania.crearCampania(campaniaDTO);
   }
 
   @GetMapping("/crear")
   public String crear(Model model) {
-    return "crearCampania";
+    return "crear";
   }
-
 }
